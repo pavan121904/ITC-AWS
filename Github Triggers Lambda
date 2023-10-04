@@ -2,25 +2,19 @@ import json
 import boto3
 
 def lambda_handler(event, context):
-    # Initialize CodePipeline and GitHub clients
-    codepipeline = boto3.client('codepipeline')
-    
-    # Extract information from the GitHub webhook event
-    github_event = json.loads(event['body'])
-    
-    # Check if it's a push event
-    if github_event['action'] == 'push':
-        # Start the CodePipeline execution
-        response = codepipeline.start_pipeline_execution(
-            name='YourCodePipelineName'
-        )
-        
+    try:
+        # Check if the 'body' key exists in the event
+        if 'body' in event:
+            # If it exists, parse the JSON body
+            github_event = json.loads(event['body'])
+            # Continue processing the event...
+        else:
+            return {
+                'statusCode': 400,
+                'body': 'Bad request: Missing "body" in the event.'
+            }
+    except Exception as e:
         return {
-            'statusCode': 200,
-            'body': f'CodePipeline execution started with ID: {response["pipelineExecutionId"]}'
-        }
-    else:
-        return {
-            'statusCode': 200,
-            'body': 'Ignoring non-push GitHub webhook event'
+            'statusCode': 500,
+            'body': f'Error: {str(e)}'
         }
