@@ -45,6 +45,3 @@ To clean up the resources created by this project, follow these steps:
 
 3. Delete the SNS topic (if it's no longer needed).
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
