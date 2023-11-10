@@ -29,7 +29,7 @@ In this repository, you will find:
    - Amazon EMR (Elastic MapReduce)
    - Amazon ECS (Elastic Container Service)
    - Terraform
-   - And many more!
+   - And many more!!
 
 2. **Hands-on Projects**: A series of practical projects designed to reinforce your understanding of AWS services by implementing real-world solutions.
 
