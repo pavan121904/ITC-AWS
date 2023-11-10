@@ -1,5 +1,5 @@
 module "vpc"{
-    source = "../../terraform-modules/vpc"
+    source = "../../terraform-modules/vpc"             #this will fetch the code from the necessary module
     tags = var.tags
     igw_tags = var.igw_tags
     public_subnet_tags = var.public_subnet_tags
