@@ -7,6 +7,6 @@ a2enmod rewrite && service apache2 restart
 echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
 # Allow port 22, 80, and 443 using ufw
 ufw allow ssh
-ufw allow htt
+ufw allow http
 ufw allow https
 ufw enable
